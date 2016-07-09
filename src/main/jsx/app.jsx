@@ -1,15 +1,26 @@
-const React    = require('react');
-const ReactDOM = require('react-dom');
+import React    from 'react';
+import ReactDOM from 'react-dom';
 
-const Hi = React.createClass({
-  render : function () {
+import ItemList from './ItemList.jsx';
+
+class App extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      items : [
+        { name : 'name 01' },
+        { name : 'name 02' }
+      ]
+    };
+  }
+  render() {
     return (
-      <div>Hi {this.props.name}</div>
+      <ItemList items={this.state.items} />
     );
   }
-});
+}
 
 ReactDOM.render(
-  <Hi name="Sample" />,
+  <App />,
   document.getElementById('container')
 );
