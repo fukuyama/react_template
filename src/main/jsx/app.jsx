@@ -8,7 +8,11 @@ class App extends React.Component {
     super(props);
     this.state = {
       events : [
-        {name : 'event name 01'}
+        {name : 'event name 01'},
+        {name : 'abcdef'},
+        {name : 'abcdef name'},
+        {name : 'abcdef name 02'},
+        {name : 'event name 03'}
       ]
     };
     this.handleChange = this.handleChange.bind(this);
