@@ -18,12 +18,16 @@ gulp.task 'browserify', =>
   browserify files, { debug : true }
     .transform babelify, { presets : ['es2015','react'] }
     .bundle()
-    .on 'error', (e) => gutil.log(e.message)
+    .on 'error', (e) ->
+      gutil.log(e.message)
+      @emit('end')
     .pipe source(outputFile)
     .pipe buffer()
     .pipe sourcemaps.init { loadMaps : true }
     .pipe uglify()
-    .on 'error', (e) => gutil.log(e.message)
+    .on 'error', (e) ->
+      gutil.log(e.message)
+      @emit('end')
     .pipe sourcemaps.write('.')
     .pipe gulp.dest(destDir)
 
