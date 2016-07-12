@@ -10,8 +10,9 @@ gulp.task 'webserver', ['webserver:build'], =>
   gulp.src publicDir
     .pipe(
       webserver {
-        host             : '127.0.0.1'
-        livereload       : true
+        host       : 'localhost'
+        livereload : true
+        open       : true
       }
     )
 

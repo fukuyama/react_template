@@ -8,14 +8,20 @@ export default class EventView extends React.Component {
     super(props);
     this.data  = props.data;
     this.state = {
-      events : this.data.events
+      events : this.dataEvents()
     };
     this.handleChangeFilter = this.handleChangeFilter.bind(this);
   }
 
+  dataEvents() {
+    return this.data.events.filter((event) => {
+      return (event != null);
+    });
+  }
+
   handleChangeFilter(filter) {
     const name   = filter.name.trim();
-    const events = this.data.events.filter((event) => {
+    const events = this.dataEvents().filter((event) => {
       return event.name.match('.*'+name+'.*');
     });
     this.setState({
