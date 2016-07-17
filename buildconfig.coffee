@@ -6,7 +6,7 @@ config = {
     files      : './src/main/jsx/app.jsx'
     watchFiles : './src/main/jsx/**/*.jsx'
     destDir    : destDir + 'public/js/'
-    outputFile : 'bundle.js'
+    outputFile : 'eventRender.js'
 
   webserver :
     files     : './src/main/public/**/*'
