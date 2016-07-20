@@ -11,7 +11,15 @@ export default class EventFilter extends React.Component {
 
   handleChange(event) {
     const value = event.target.value;
-    this.props.onChangeFilter({name:value});
+    const name  = value.trim();
+    this.props.onChangeFilter({
+      filter : (obj) => {
+        if (name.match(/^[0-9]+$/)) {
+          return obj.id == parseInt(name);
+        }
+        return obj.name.match('.*'+name+'.*');
+      }
+    });
     this.setState({value:value});
   }
 

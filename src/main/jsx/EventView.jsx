@@ -19,11 +19,8 @@ export default class EventView extends React.Component {
     });
   }
 
-  handleChangeFilter(filter) {
-    const name   = filter.name.trim();
-    const events = this.dataEvents().filter((event) => {
-      return event.name.match('.*'+name+'.*');
-    });
+  handleChangeFilter({ filter }) {
+    const events = this.dataEvents().filter(filter);
     this.setState({
       events : events
     });
